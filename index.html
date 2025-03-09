@@ -33,15 +33,15 @@
     <style>
         .hero-image-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 380px;  /* Reduced from 450px */
             position: relative;
             margin: 0 auto;
         }
 
         @media (max-width: 768px) {
             .hero-image-container {
-                width: 280px;
-                height: 280px;
+                width: 240px;  /* Reduced from 280px */
+                height: 240px;  /* Reduced from 280px */
             }
 
             .hero-image-container img {
@@ -49,11 +49,18 @@
                 height: 100%;
                 object-fit: cover;
             }
-            
-            #typed-text {
-                font-size: 2rem !important;
-                height: auto !important;
-            }
+        }
+
+        /* Add smooth transition for image size changes */
+        .hero-image-container, 
+        .hero-image-container img {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Adjust floating elements position */
+        .floating-badge {
+            padding: 0.5rem 1rem;  /* Smaller padding */
+            font-size: 0.875rem;   /* Smaller font */
         }
     </style>
     <style>
@@ -168,36 +175,58 @@
     
     <!-- Hero Section -->
     <header class="min-h-screen flex items-center justify-center text-left pt-24 pb-12 px-4 md:px-6 bg-gradient-to-br from-gray-900 to-pink-900 relative">
-    <div class="max-w-7xl flex flex-col md:flex-row items-center w-full relative z-10 gap-4 md:gap-8">
-        <!-- Text content -->
-        <div class="md:w-1/2 text-white">
-            <div class="space-y-4"> <!-- Reduced spacing -->
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                    Premium Makeup<br>
-                    Services For You
-                </h1>
-                <p class="text-xl md:text-2xl font-light text-white/90">
-                    Certified Cosmetician | Luxury Treatments | Professional Care
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 mt-4"> <!-- Reduced top margin -->
-                    <a href="#contact" 
-                       class="px-8 py-4 bg-pink-500 hover:bg-pink-600 rounded-full text-white transition transform hover:scale-105 text-center">
-                        Book Now
-                    </a>
-                    <a href="#services" 
-                       class="px-8 py-4 border-2 border-white hover:bg-white/20 rounded-full transition text-center">
-                        Our Services
-                    </a>
+        <div class="max-w-7xl flex flex-col md:flex-row items-center w-full relative z-10 gap-4 md:gap-8">
+            <!-- Text content -->
+            <div class="md:w-1/2 text-white">
+                <div class="space-y-4"> <!-- Reduced spacing -->
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                        Premium Makeup<br>
+                        Services For You
+                    </h1>
+                    <p class="text-xl md:text-2xl font-light text-white/90">
+                        Certified Cosmetician | Luxury Treatments | Professional Care
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-4"> <!-- Reduced top margin -->
+                        <a href="#contact" 
+                           class="px-8 py-4 bg-pink-500 hover:bg-pink-600 rounded-full text-white transition transform hover:scale-105 text-center">
+                            Book Now
+                        </a>
+                        <a href="#services" 
+                           class="px-8 py-4 border-2 border-white hover:bg-white/20 rounded-full transition text-center">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="md:w-1/2 flex flex-col items-center justify-center relative mt-8 md:mt-0"> <!-- Reduced top margin -->
+                <div class="hero-image-container">
+                    <div class="relative w-full pb-[100%]">
+                        <!-- Circular frame with gradient border -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 via-purple-500 to-pink-600 p-1 animate-spin-slow">
+                            <div class="absolute inset-0 rounded-full bg-white overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80" 
+                                     class="w-full h-full object-cover rounded-full"
+                                     alt="Lead Makeup Artist">
+                            </div>
+                        </div>
+                        <!-- Floating elements -->
+                        <div class="absolute -top-3 -right-3 bg-white p-2 rounded-full shadow-lg"> <!-- Reduced padding and position -->
+                            <span class="text-pink-600 font-semibold text-sm">15+ Years</span>
+                        </div>
+                        <div class="absolute -bottom-3 -left-3 bg-white p-2 rounded-full shadow-lg"> <!-- Reduced padding and position -->
+                            <span class="text-pink-600 font-semibold text-sm">Pro Artist</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <h3 class="text-white text-xl md:text-3xl font-semibold">Sophia Anderson</h3>
+                    <p class="text-white/80 text-base md:text-xl mt-2">Celebrity Makeup Artist</p>
                 </div>
             </div>
         </div>
-
-        <!-- Hero Image -->
-        <div class="md:w-1/2 flex flex-col items-center justify-center relative mt-8 md:mt-0"> <!-- Reduced top margin -->
-            <!-- Rest of the hero image code remains the same -->
-        </div>
-    </div>
-</header>
+    </header>
     
     <!-- Services Section -->
     <section id="services" class="py-24 px-6">
