@@ -1,0 +1,44 @@
+
+    /* Animation base classes */
+    .animate-element {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .animate-element.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Animation variations */
+    .animate-fade-up {
+        transform: translateY(30px);
+    }
+
+    .animate-fade-down {
+        transform: translateY(-30px);
+    }
+
+    .animate-fade-left {
+        transform: translateX(30px);
+    }
+
+    .animate-fade-right {
+        transform: translateX(-30px);
+    }
+
+    .animate-scale {
+        transform: scale(0.95);
+    }
+
+    .animate-zoom {
+        transform: scale(0.8);
+    }
+
+    /* Animation delay utilities */
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+    .delay-500 { transition-delay: 0.5s; }
