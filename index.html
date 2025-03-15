@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishna AK BI DI JI – Skin & Hair Care</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-     <link rel="stylesheet" href="output.css">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+     <!-- <link rel="stylesheet" href="output.css"> -->
     <!-- Add Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@400;700&display=swap" rel="stylesheet">
     
-    <script src="imageOptimizer.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            new ImageOptimizer();
-        });
-    </script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <script src="script.js"></script>
     
     <!-- Add preconnect for external resources -->
@@ -145,17 +140,23 @@
 </style>
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-pink-50 text-gray-900">
-    
-    <!-- Navbar -->
+    <!-- Navbar with Logo -->
     <nav class="bg-white/80 backdrop-blur-md shadow-lg py-4 px-4 md:px-6 fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center relative">
-            <h1 class="text-xl md:text-2xl font-bold text-pink-600">Krishna AK BI DI JI</h1>
+            <!-- Logo and Brand Name -->
+            <a href="#" class="flex items-center gap-2">
+                <img src="./images/icon-512.png" alt="Krishna AK BI DI JI Logo" class="h-10 w-10 rounded-full">
+                <h1 class="text-xl md:text-2xl font-bold text-pink-600">Krishna AK BI DI JI</h1>
+            </a>
+            
+            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8">
                 <li><a href="#services" class="hover:text-pink-500 transition">Services</a></li>
                 <li><a href="#gallery" class="hover:text-pink-500 transition">Gallery</a></li>
                 <li><a href="#testimonials" class="hover:text-pink-500 transition">Reviews</a></li>
                 <li><a href="#contact" class="px-4 py-2 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition">Book Now</a></li>
             </ul>
+            
             <!-- Mobile menu button -->
             <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,6 +164,7 @@
                 </svg>
             </button>
         </div>
+        
         <!-- Mobile menu -->
         <div id="mobileMenu" class="hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-100">
             <ul class="flex flex-col py-4">
@@ -173,7 +175,6 @@
             </ul>
         </div>
     </nav>
-    
     <!-- Hero Section -->
     <header class="min-h-screen flex items-center justify-center text-left pt-24 pb-12 px-4 md:px-6 bg-gradient-to-br from-gray-900 to-pink-900 relative">
         <div class="max-w-7xl flex flex-col md:flex-row items-center w-full relative z-10 gap-4 md:gap-8">
@@ -1069,6 +1070,12 @@
             </div>
         </div>
     </footer>
+    <script src="imageOptimizer.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new ImageOptimizer();
+        });
+    </script>
         <script>
         function showTab(tabName) {
             // Hide all tab contents
@@ -1116,5 +1123,6 @@
             });
         }
     </script>
+
 </body>
 </html>
