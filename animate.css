@@ -1,44 +1,288 @@
+/* Animation base classes - OPTIMIZED FOR PERFORMANCE */
+.animate-element {
+    opacity: 0;
+    will-change: opacity, transform; /* Hardware acceleration hint */
+    backface-visibility: hidden; /* Reduce repaints */
+    -webkit-font-smoothing: antialiased; /* Better text rendering during animations */
+}
 
-    /* Animation base classes */
+.animate-element.visible {
+    opacity: 1;
+    transform: none !important; /* Simplifies transforms */
+}
+
+/* Simplified animation variations */
+.animate-fade-up { transform: translateY(20px); }
+.animate-fade-down { transform: translateY(-20px); }
+.animate-fade-left { transform: translateX(20px); }
+.animate-fade-right { transform: translateX(-20px); }
+.animate-scale { transform: scale(0.97); }
+.animate-zoom { transform: scale(0.9); }
+
+/* Shorter transitions for mobile */
+@media (max-width: 767px) {
     .animate-element {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        /* Reduced duration for mobile */
     }
-
-    .animate-element.visible {
-        opacity: 1;
-        transform: translateY(0);
+    
+    /* Simplified transforms for mobile */
+    .animate-fade-up { transform: translateY(10px); }
+    .animate-fade-down { transform: translateY(-10px); }
+    .animate-fade-left { transform: translateX(10px); }
+    .animate-fade-right { transform: translateX(-10px); }
+    .animate-scale { transform: scale(0.98); }
+    .animate-zoom { transform: scale(0.95); }
+    
+    /* Shorter delays for mobile */
+    .delay-100 { transition-delay: 0.05s; }
+    .delay-200 { transition-delay: 0.1s; }
+    .delay-300 { transition-delay: 0.15s; }
+    .delay-400 { transition-delay: 0.2s; }
+    .delay-500 { transition-delay: 0.25s; }
+    
+    /* Disable animations completely for older/slower devices */
+    @media (prefers-reduced-motion: reduce) {
+        .animate-element {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
     }
+}
 
-    /* Animation variations */
-    .animate-fade-up {
-        transform: translateY(30px);
+/* Desktop transitions */
+@media (min-width: 768px) {
+    .animate-element {
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
-    .animate-fade-down {
-        transform: translateY(-30px);
-    }
-
-    .animate-fade-left {
-        transform: translateX(30px);
-    }
-
-    .animate-fade-right {
-        transform: translateX(-30px);
-    }
-
-    .animate-scale {
-        transform: scale(0.95);
-    }
-
-    .animate-zoom {
-        transform: scale(0.8);
-    }
-
-    /* Animation delay utilities */
+    
+    /* Animation delay utilities for desktop */
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
     .delay-400 { transition-delay: 0.4s; }
     .delay-500 { transition-delay: 0.5s; }
+}
+
+/* Add this JavaScript to limit animations on scroll */
+/* This code should be added to your script.js file */
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup Intersection Observer with larger thresholds to start animations sooner
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Slight delay to allow browser to process other operations
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 10);
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -10% 0px', // Start animation slightly before element is in view
+        threshold: 0.05 // Trigger when just 5% is visible
+    });
+    
+    // Only observe a limited number of elements at once
+    const animElements = document.querySelectorAll('.animate-element');
+    const isMobile = window.innerWidth < 768;
+    const maxAnimations = isMobile ? 5 : 12; // Limit animations on mobile
+    
+    Array.from(animElements).slice(0, maxAnimations).forEach(el => {
+        observer.observe(el);
+    });
+});
+*/
+
+/* Mobile responsiveness fixes - CSS only solution */
+@media (max-width: 767px) {
+    /* Fix container width issues */
+    .max-w-7xl {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Fix section padding */
+    section {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Adjust section vertical padding */
+    .py-24 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Fix grid layouts on mobile */
+    .grid {
+        display: grid !important;
+        width: 100% !important;
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Fix service cards */
+    .mb-20 {
+        margin-bottom: 2.5rem !important;
+        width: 100% !important;
+    }
+    
+    /* Fix card padding for better mobile display */
+    .p-8 {
+        padding: 1.5rem !important;
+    }
+    
+    /* Make images responsive */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Fix hero section */
+    header.min-h-screen {
+        min-height: 100vh !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Fix hero container */
+    header .max-w-7xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Fix hero image container */
+    .hero-image-container {
+        max-width: 280px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Fix rounded corners for better mobile appearance */
+    .rounded-3xl {
+        border-radius: 1rem !important;
+    }
+    
+    .rounded-xl {
+        border-radius: 0.75rem !important;
+    }
+    
+    /* Fix gallery items height */
+    #gallery .h-96 {
+        height: 16rem !important;
+    }
+    
+    /* Fix FAQ width */
+    #faq .max-w-3xl {
+        width: 100% !important;
+    }
+    
+    /* Fix button containers */
+    .flex-col.sm\:flex-row {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    /* Make buttons full-width on mobile */
+    .flex-col.sm\:flex-row > a, 
+    .flex-col.sm\:flex-row > button {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center !important;
+    }
+    
+    /* Fix footer grid */
+    footer .grid {
+        gap: 2rem !important;
+    }
+    
+    /* Fix testimonial cards */
+    #testimonials .p-8 {
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Fix contact form */
+    #contact .md\:flex {
+        display: block !important;
+    }
+    
+    #contact .md\:w-1\/2 {
+        width: 100% !important;
+    }
+    
+    /* Fix possible overflow issues */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Fix for specific problematic elements */
+    [class*="overflow-hidden"] {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    
+    /* Fix gap issues */
+    .gap-8 {
+        gap: 1.5rem !important;
+    }
+    
+    .gap-12 {
+        gap: 2rem !important;
+    }
+}
+
+/* Fix mobile menu positioning */
+@media (max-width: 767px) {
+    #mobileMenu {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    nav {
+        width: 100% !important;
+    }
+}
+
+/* Animation base styles (keeping these outside media query) */
+.animate-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation variations */
+.animate-fade-up { transform: translateY(30px); }
+.animate-fade-down { transform: translateY(-30px); }
+.animate-fade-left { transform: translateX(30px); }
+.animate-fade-right { transform: translateX(-30px); }
+.animate-scale { transform: scale(0.95); }
+.animate-zoom { transform: scale(0.8); }
+
+/* Animation delay utilities */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }

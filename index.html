@@ -145,7 +145,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center relative">
             <!-- Logo and Brand Name -->
             <a href="#" class="flex items-center gap-2">
-                <img src="./images/icon-512.png" alt="Krishna AK BI DI JI Logo" class="h-10 w-10 rounded-full">
+                <!-- <img src="./images/icon-512.png" alt="Krishna AK BI DI JI Logo" class="h-10 w-10 rounded-full"> -->
                 <h1 class="text-xl md:text-2xl font-bold text-pink-600">Krishna AK BI DI JI</h1>
             </a>
             
@@ -1070,12 +1070,7 @@
             </div>
         </div>
     </footer>
-    <script src="imageOptimizer.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            new ImageOptimizer();
-        });
-    </script>
+  
         <script>
         function showTab(tabName) {
             // Hide all tab contents
@@ -1111,17 +1106,8 @@
             }
         }
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed:', err);
-                    });
-            });
-        }
+       
+    
     </script>
 
 </body>

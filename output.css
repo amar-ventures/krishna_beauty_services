@@ -1100,6 +1100,213 @@
 }
 .animate-element {
   opacity: 0;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.animate-element.visible {
+  opacity: 1;
+  transform: none !important;
+}
+.animate-fade-up {
+  transform: translateY(20px);
+}
+.animate-fade-down {
+  transform: translateY(-20px);
+}
+.animate-fade-left {
+  transform: translateX(20px);
+}
+.animate-fade-right {
+  transform: translateX(-20px);
+}
+.animate-scale {
+  transform: scale(0.97);
+}
+.animate-zoom {
+  transform: scale(0.9);
+}
+@media (max-width: 767px) {
+  .animate-element {
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+  .animate-fade-up {
+    transform: translateY(10px);
+  }
+  .animate-fade-down {
+    transform: translateY(-10px);
+  }
+  .animate-fade-left {
+    transform: translateX(10px);
+  }
+  .animate-fade-right {
+    transform: translateX(-10px);
+  }
+  .animate-scale {
+    transform: scale(0.98);
+  }
+  .animate-zoom {
+    transform: scale(0.95);
+  }
+  .delay-100 {
+    transition-delay: 0.05s;
+  }
+  .delay-200 {
+    transition-delay: 0.1s;
+  }
+  .delay-300 {
+    transition-delay: 0.15s;
+  }
+  .delay-400 {
+    transition-delay: 0.2s;
+  }
+  .delay-500 {
+    transition-delay: 0.25s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-element {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .animate-element {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .delay-100 {
+    transition-delay: 0.1s;
+  }
+  .delay-200 {
+    transition-delay: 0.2s;
+  }
+  .delay-300 {
+    transition-delay: 0.3s;
+  }
+  .delay-400 {
+    transition-delay: 0.4s;
+  }
+  .delay-500 {
+    transition-delay: 0.5s;
+  }
+}
+@media (max-width: 767px) {
+  .max-w-7xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+  section {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .py-24 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .grid {
+    display: grid !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+  .mb-20 {
+    margin-bottom: 2.5rem !important;
+    width: 100% !important;
+  }
+  .p-8 {
+    padding: 1.5rem !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  header.min-h-screen {
+    min-height: 100vh !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  header .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .hero-image-container {
+    max-width: 280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .rounded-3xl {
+    border-radius: 1rem !important;
+  }
+  .rounded-xl {
+    border-radius: 0.75rem !important;
+  }
+  #gallery .h-96 {
+    height: 16rem !important;
+  }
+  #faq .max-w-3xl {
+    width: 100% !important;
+  }
+  .flex-col.sm\:flex-row {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .flex-col.sm\:flex-row > a, .flex-col.sm\:flex-row > button {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+  }
+  footer .grid {
+    gap: 2rem !important;
+  }
+  #testimonials .p-8 {
+    margin-bottom: 1rem !important;
+  }
+  #contact .md\:flex {
+    display: block !important;
+  }
+  #contact .md\:w-1\/2 {
+    width: 100% !important;
+  }
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  [class*="overflow-hidden"] {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  .gap-8 {
+    gap: 1.5rem !important;
+  }
+  .gap-12 {
+    gap: 2rem !important;
+  }
+}
+@media (max-width: 767px) {
+  #mobileMenu {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  nav {
+    width: 100% !important;
+  }
+}
+.animate-element {
+  opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
